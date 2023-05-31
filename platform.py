@@ -20,7 +20,7 @@ IS_WINDOWS = sys.platform.startswith("win")
 IS_LINUX = sys.platform.startswith("linux")
 IS_MAC = sys.platform.startswith("darwin")
 
-class Ch32vPlatform(PlatformBase):
+class Hswch32v003Platform(PlatformBase):
     def get_boards(self, id_=None):
         result = super().get_boards(id_)
         if not result:
