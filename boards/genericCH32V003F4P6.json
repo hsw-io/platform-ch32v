@@ -23,7 +23,7 @@
     "svd_path": "CH32V003xx.svd"
   },
   "frameworks": [
-    "noneos-sdk"
+    "ch32v003-sdk"
   ],
   "name": "Generic CH32V003F4P6",
   "upload": {

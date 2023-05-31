@@ -62,13 +62,13 @@ env.Append(
         # Paths for startup and system are addeed later if wanted
     ],
     LIBS=env.BuildLibrary(
-        join("$BUILD_DIR", "FrameworkNoneOSVariant"),
+        join("$BUILD_DIR", "FrameworkCH32V003Variant"),
         join(FRAMEWORK_DIR, "Peripheral", "src"),
     ),
 )
 
 env.BuildSources(
-    join("$BUILD_DIR", "FrameworkNoneOSCore"),
+    join("$BUILD_DIR", "FrameworkCH32V003Core"),
     join(FRAMEWORK_DIR, "Core")
 )
 
@@ -82,7 +82,7 @@ if get_flag_value("use_builtin_startup_file", True):
     startup_filename = "startup_ch32v00x.S"
     startup_file_filter = f"-<*> +<{startup_filename}>"
     env.BuildSources(
-        join("$BUILD_DIR", "FrameworkNoneOSStartup"),
+        join("$BUILD_DIR", "FrameworkCH32V003Startup"),
         join(FRAMEWORK_DIR, "Startup"),
         startup_file_filter
     )
@@ -91,7 +91,7 @@ if get_flag_value("use_builtin_startup_file", True):
 if get_flag_value("use_builtin_system_code", True):
     env.Append(CPPPATH=[join(FRAMEWORK_DIR, "System")])
     env.BuildSources(
-        join("$BUILD_DIR", "FrameworkNoneOSSSystem"),
+        join("$BUILD_DIR", "FrameworkCH32V003System"),
         join(FRAMEWORK_DIR, "System")
     )
 
@@ -100,6 +100,6 @@ if get_flag_value("use_builtin_system_code", True):
 if get_flag_value("use_builtin_debug_code", True):
     env.Append(CPPPATH=[join(FRAMEWORK_DIR, "Debug")])
     env.BuildSources(
-        join("$BUILD_DIR", "FrameworkNoneOSDebug"),
+        join("$BUILD_DIR", "FrameworkCH32V003Debug"),
         join(FRAMEWORK_DIR, "Debug")
     )

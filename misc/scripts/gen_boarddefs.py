@@ -85,7 +85,7 @@ def create_board_json(info: ChipInfo, board_name:str, output_path: str, patch_in
             "svd_path": info.exact_series().upper() + "xx.svd"
         },
         "frameworks": [
-            "noneos-sdk"
+            "ch32v003-sdk"
         ],
         "name": board_name,
         "upload": {
