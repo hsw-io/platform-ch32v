@@ -36,7 +36,7 @@ SUBSYSTEM=="usb", ATTR{idVendor}="1a86", ATTR{idProduct}=="8012", GROUP="plugdev
 
 ```ini
 [env:development]
-platform = https://github.com/hsw-lab/platform-ch32v.git
+platform = https://github.com/hsw-io/platform-ch32v.git
 board = ...
 ...
 ```
