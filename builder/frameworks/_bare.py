@@ -7,8 +7,6 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 
 mcu = str(board.get("build.mcu", "")).lower()
-data_limit = 0 if mcu.startswith("ch32v0") else 8
-
 machine_arch = str(board.get("build.march"))
 
 env.Append(
@@ -38,8 +36,8 @@ env.Append(
         "-Os",
         "-g",
         "-Wall",
-        "-msmall-data-limit=%d" % data_limit,
-        "-mno-save-restore" if mcu.startswith("ch5") else "-msave-restore",
+        "-msmall-data-limit=0",
+        "-msave-restore",
         "-fmessage-length=0",
         "-fsigned-char",
         "-ffunction-sections",
