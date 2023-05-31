@@ -23,8 +23,7 @@
     "svd_path": "CH32V003xx.svd"
   },
   "frameworks": [
-    "noneos-sdk",
-    "arduino"
+    "noneos-sdk"
   ],
   "name": "Generic CH32V003J4M6",
   "upload": {

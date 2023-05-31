@@ -25,11 +25,13 @@ class Ch32vPlatform(PlatformBase):
         result = super().get_boards(id_)
         if not result:
             return result
+
         if id_:
             return self._add_default_debug_tools(result)
         else:
             for key in result:
                 result[key] = self._add_default_debug_tools(result[key])
+
         return result
 
     def configure_default_packages(self, variables, targets):
@@ -39,27 +41,7 @@ class Ch32vPlatform(PlatformBase):
             self.packages["toolchain-riscv"]["version"] = "https://github.com/Community-PIO-CH32V/toolchain-riscv-linux.git"
         elif IS_MAC:
             self.packages["toolchain-riscv"]["version"] = "https://github.com/Community-PIO-CH32V/toolchain-riscv-mac.git"
-        if not variables.get("board"):
-            return super().configure_default_packages(variables, targets)
-        selected_frameworks = variables.get("pioframework", [])
-        # The FreeRTOS, Harmony LiteOS and RT-Thread package needs the 
-        # NoneSDK as a base package
-        if any([framework in selected_frameworks for framework in ("freertos", "harmony-liteos", "rt-thread", "tencent-os")]):
-            self.packages["framework-wch-noneos-sdk"]["optional"] = False
-        # upload via USB bootloader wanted? (called "isp" in our platform)
-        # then activate package
-        board = variables.get("board")
-        board_config = self.board_config(board)
-        default_protocol = board_config.get("upload.protocol") or ""
-        if variables.get("upload_protocol", default_protocol) == "isp":
-            self.packages["tool-wchisp"]["optional"] = False
 
-        frameworks = variables.get("pioframework", [])
-        if "arduino" in frameworks:
-            if board_config.get("build.mcu", "").lower().startswith("ch32v003"): 
-                self.frameworks["arduino"]["package"] = "framework-arduinoch32v003"
-            else:
-                self.frameworks["arduino"]["package"] = "framework-arduinoch32v"
         return super().configure_default_packages(variables, targets)
 
     def _add_default_debug_tools(self, board):
