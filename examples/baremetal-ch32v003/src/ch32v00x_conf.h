@@ -791,7 +791,7 @@ typedef enum
     GPIO_Speed_10MHz = 1,
     GPIO_Speed_2MHz,
     GPIO_Speed_50MHz
-} GPIOSpeed_TypeDef;
+} GPIOSpeed;
 
 #define GPIO_SPEED_IN 0
 
@@ -807,15 +807,15 @@ typedef enum
 /*
 typedef enum
 {
-    GPIO_Mode_AIN = 0x0,
-    GPIO_Mode_IN_FLOATING = 0x04,
-    GPIO_Mode_IPD = 0x28,
-    GPIO_Mode_IPU = 0x48,
-    GPIO_Mode_Out_OD = 0x14,
-    GPIO_Mode_Out_PP = 0x10,
-    GPIO_Mode_AF_OD = 0x1C,
-    GPIO_Mode_AF_PP = 0x18
-} GPIOMode_TypeDef;
+    GPIO_MODE_analog_in = 0x0,
+    GPIO_MODE_in_floating = 0x04,
+    GPIO_MODE_in_pull_down = 0x28,
+    GPIO_MODE_in_pull_up = 0x48,
+    GPIO_MODE_out_open_drain = 0x14,
+    GPIO_MODE_out_push_pull = 0x10,
+    GPIO_MODE_alt_func_open_drain_OD = 0x1C,
+    GPIO_MODE_alt_func_push_pull = 0x18
+} GPIO_MODE;
 */
 
 

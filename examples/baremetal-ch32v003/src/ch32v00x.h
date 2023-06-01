@@ -170,7 +170,7 @@ typedef struct
     __IO uint32_t BSHR;
     __IO uint32_t BCR;
     __IO uint32_t LCKR;
-} GPIO_TypeDef;
+} GPIOPort;
 
 /* Alternate Function I/O */
 typedef struct
