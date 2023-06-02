@@ -17,13 +17,13 @@ int main()
 
 	// GPIO C1 Push-Pull, 10MHz Slew Rate Setting
 	GPIOC->CFGLR &= ~(0xf<<(4*1));
-	GPIOC->CFGLR |= (GPIO_Speed_10MHz | GPIO_CNF_OUT_PP)<<(4*1);
+	GPIOC->CFGLR |= (GPIO_SPEED_10MHz | GPIO_CNF_OUT_PP)<<(4*1);
 
 	while(1)
 	{
 		GPIOC->BSHR = 1 << 1;	 // Turn on GPIOC1
-		Delay_Ms( 100 );
+		delay_ms( 100 );
 		GPIOC->BCR = 1 << 1;    // Turn off GPIOC1
-		Delay_Ms( 100 );
+		delay_ms( 100 );
 	}
 }

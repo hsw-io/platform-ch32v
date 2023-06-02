@@ -58,7 +58,8 @@ env.Append(
     CPPPATH=[
         join(FRAMEWORK_DIR, "Core"),
         join(FRAMEWORK_DIR, "Peripheral", "inc"),
-        join(FRAMEWORK_DIR, "Peripheral", "src")
+        join(FRAMEWORK_DIR, "Peripheral", "src"),
+        join(FRAMEWORK_DIR, "SDK"),
         # Paths for startup and system are addeed later if wanted
     ],
     LIBS=env.BuildLibrary(
@@ -70,6 +71,11 @@ env.Append(
 env.BuildSources(
     join("$BUILD_DIR", "FrameworkCH32V003Core"),
     join(FRAMEWORK_DIR, "Core")
+)
+
+env.BuildSources(
+    join("$BUILD_DIR", "FrameworkCH32V003SDK"),
+    join(FRAMEWORK_DIR, "SDK")
 )
 
 if not board.get("build.ldscript", ""):

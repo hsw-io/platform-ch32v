@@ -16,7 +16,7 @@
 void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void Delay_Init(void);
-void Delay_Ms(uint32_t n);
+void delay_ms(uint32_t n);
 
 int main(void)
 {
@@ -29,7 +29,7 @@ int main(void)
 	BLINKY_CLOCK_ENABLE;
 	GPIO_InitStructure.GPIO_Pin = BLINKY_GPIO_PIN;
 	GPIO_InitStructure.mode = GPIO_MODE_out_push_pull;
-	GPIO_InitStructure.speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.speed = GPIO_SPEED_50MHz;
 	gpio_init(BLINKY_GPIO_PORT, &GPIO_InitStructure);
 
 	uint8_t ledState = 0;
@@ -37,7 +37,7 @@ int main(void)
 	{
 		gpio_write_bit(BLINKY_GPIO_PORT, BLINKY_GPIO_PIN, ledState);
 		ledState ^= 1; // invert for the next run
-		Delay_Ms(1000);
+		delay_ms(1000);
 	}
 }
 

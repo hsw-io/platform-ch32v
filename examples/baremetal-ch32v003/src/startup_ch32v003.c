@@ -168,7 +168,7 @@ void SetupUART( int uartBRR )
 
 	// Push-Pull, 10MHz Output, GPIO D5, with AutoFunction
 	GPIOD->CFGLR &= ~(0xf<<(4*5));
-	GPIOD->CFGLR |= (GPIO_Speed_10MHz | GPIO_CNF_OUT_PP_AF)<<(4*5);
+	GPIOD->CFGLR |= (GPIO_SPEED_10MHz | GPIO_CNF_OUT_PP_AF)<<(4*5);
 	
 	// 115200, 8n1.  Note if you don't specify a mode, UART remains off even when UE_Set.
 	USART1->CTLR1 = USART_WordLength_8b | USART_Parity_No | USART_Mode_Tx;

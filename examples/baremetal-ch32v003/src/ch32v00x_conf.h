@@ -788,10 +788,10 @@ typedef enum
 /* Output Maximum frequency selection */
 typedef enum
 {
-    GPIO_Speed_10MHz = 1,
-    GPIO_Speed_2MHz,
-    GPIO_Speed_50MHz
-} GPIOSpeed;
+    GPIO_SPEED_10MHz = 1,
+    GPIO_SPEED_2MHz,
+    GPIO_SPEED_50MHz
+} GPIO_SPEED;
 
 #define GPIO_SPEED_IN 0
 

@@ -16,7 +16,7 @@ int main(void)
 	SystemCoreClockUpdate();
 	Delay_Init();
 	USART_Printf_Init(115200);
-	Delay_Ms(1000); // give serial monitor time to open
+	delay_ms(1000); // give serial monitor time to open
 	printf("SystemClk: %u\r\n", (unsigned)SystemCoreClock);
 	#if defined(CH32V30X)
 	printf("ChipID: %08x\r\n", (unsigned)DBGMCU_GetCHIPID());
@@ -27,7 +27,7 @@ int main(void)
 
 	while (1)
 	{
-		Delay_Ms(1000);
+		delay_ms(1000);
 		printf("Program over, press reset button\r\n");
 	}
 }
