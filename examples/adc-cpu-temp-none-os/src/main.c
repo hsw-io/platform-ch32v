@@ -16,7 +16,7 @@ s16 Calibrattion_Val = 0;
 void ADC_Function_Init(void)
 {
     ADC_InitTypeDef ADC_InitStructure = {0};
-    GPIOInit GPIO_InitStructure = {0};
+    GPIO_PinConfig GPIO_InitStructure = {0};
 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);

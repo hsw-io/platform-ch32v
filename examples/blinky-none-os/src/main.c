@@ -24,7 +24,7 @@ int main(void)
 	SystemCoreClockUpdate();
 	Delay_Init();
 
-	GPIOInit GPIO_InitStructure = {0};
+	GPIO_PinConfig GPIO_InitStructure = {0};
 
 	BLINKY_CLOCK_ENABLE;
 	GPIO_InitStructure.GPIO_Pin = BLINKY_GPIO_PIN;

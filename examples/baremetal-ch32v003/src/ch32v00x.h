@@ -98,14 +98,14 @@ typedef struct
     __IO uint32_t IDATAR4;
     __IO uint32_t RDATAR;
     __IO uint32_t DLYR;
-} ADC_TypeDef;
+} ADC_PRegs;
 
 /* Debug MCU */
 typedef struct
 {
     __IO uint32_t CFGR0;
     __IO uint32_t CFGR1;
-} DBGMCU_TypeDef;
+} DBGMCU_PRegs;
 
 /* DMA Controller */
 typedef struct
@@ -114,13 +114,13 @@ typedef struct
     __IO uint32_t CNTR;
     __IO uint32_t PADDR;
     __IO uint32_t MADDR;
-} DMA_Channel_TypeDef;
+} DMA_ChannelPRegs;
 
 typedef struct
 {
     __IO uint32_t INTFR;
     __IO uint32_t INTFCR;
-} DMA_TypeDef;
+} DMA_PRegs;
 
 /* External Interrupt/Event Controller */
 typedef struct
@@ -131,7 +131,7 @@ typedef struct
     __IO uint32_t FTENR;
     __IO uint32_t SWIEVR;
     __IO uint32_t INTFR;
-} EXTI_TypeDef;
+} EXTI_PRegs;
 
 /* FLASH Registers */
 typedef struct
@@ -147,7 +147,7 @@ typedef struct
     __IO uint32_t WPR;
     __IO uint32_t MODEKEYR;
     __IO uint32_t BOOT_MODEKEYR;
-} FLASH_TypeDef;
+} FLASH_PRegs;
 
 /* Option Bytes Registers */
 typedef struct
@@ -158,7 +158,7 @@ typedef struct
     __IO uint16_t Data1;
     __IO uint16_t WRPR0;
     __IO uint16_t WRPR1;
-} OB_TypeDef;
+} OB_Regs;
 
 /* General Purpose I/O */
 typedef struct
@@ -170,7 +170,7 @@ typedef struct
     __IO uint32_t BSHR;
     __IO uint32_t BCR;
     __IO uint32_t LCKR;
-} GPIOPort;
+} GPIO_Regs;
 
 /* Alternate Function I/O */
 typedef struct
@@ -178,7 +178,7 @@ typedef struct
     uint32_t RESERVED0;
     __IO uint32_t PCFR1;
     __IO uint32_t EXTICR;
-} AFIO_TypeDef;
+} AFIO_Regs;
 
 /* Inter Integrated Circuit Interface */
 typedef struct
@@ -199,7 +199,7 @@ typedef struct
     uint16_t      RESERVED6;
     __IO uint16_t CKCFGR;
     uint16_t      RESERVED7;
-} I2C_TypeDef;
+} I2C_Regs;
 
 /* Independent WatchDog */
 typedef struct
@@ -208,7 +208,7 @@ typedef struct
     __IO uint32_t PSCR;
     __IO uint32_t RLDR;
     __IO uint32_t STATR;
-} IWDG_TypeDef;
+} IWDG_Regs;
 
 /* Power Control */
 typedef struct
@@ -218,7 +218,7 @@ typedef struct
     __IO uint32_t AWUCSR;
     __IO uint32_t AWUWR;
     __IO uint32_t AWUPSC;
-} PWR_TypeDef;
+} PWR_Regs;
 
 /* Reset and Clock Control */
 typedef struct
@@ -233,7 +233,7 @@ typedef struct
     __IO uint32_t APB1PCENR;
     __IO uint32_t RESERVED0;
     __IO uint32_t RSTSCKR;
-} RCC_TypeDef;
+} RCC_Regs;
 
 /* Serial Peripheral Interface */
 typedef struct

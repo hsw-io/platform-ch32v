@@ -813,7 +813,7 @@ typedef enum
     GPIO_MODE_in_pull_up = 0x48,
     GPIO_MODE_out_open_drain = 0x14,
     GPIO_MODE_out_push_pull = 0x10,
-    GPIO_MODE_alt_func_open_drain_OD = 0x1C,
+    GPIO_MODE_alt_func_open_drain = 0x1C,
     GPIO_MODE_alt_func_push_pull = 0x18
 } GPIO_MODE;
 */
@@ -955,7 +955,7 @@ typedef enum
 /******************************************************************************************************************** 
   * @brief  Start communicate
   * 
-  * After master use I2C_GenerateSTART() function sending the START condition,the master 
+  * After master use i2c_generate_start() function sending the START condition,the master 
   * has to wait for event 5(the Start condition has been correctly 
   * released on the I2C bus ).
   * 
@@ -967,7 +967,7 @@ typedef enum
   * @brief  Address Acknowledge
   * 
   * When start condition correctly released on the bus(check EVT5), the 
-  * master use I2C_Send7bitAddress() function sends the address of the slave(s) with which it will communicate 
+  * master use i2c_send_7bit_address() function sends the address of the slave(s) with which it will communicate 
   * it also determines master as transmitter or Receiver. Then the master has to wait that a slave acknowledges 
   * his address. If an acknowledge is sent on the bus, one of the following events will be set:
   * 
@@ -980,9 +980,9 @@ typedef enum
   *     is set
   *  
   *  3) In case of 10-Bit addressing mode, the master (after generating the START 
-  *  and checking on EVT5) use I2C_SendData() function send the header of 10-bit addressing mode.  
+  *  and checking on EVT5) use i2c_send_data() function send the header of 10-bit addressing mode.  
   *  Then master wait EVT9. EVT9 means that the 10-bit addressing header has been correctly sent 
-  *  on the bus. Then master should use the function I2C_Send7bitAddress() to send the second part 
+  *  on the bus. Then master should use the function i2c_send_7bit_address() to send the second part 
   *  of the 10-bit address (LSB) . Then master should wait for event 6. 
   *
   *     
@@ -1002,9 +1002,9 @@ typedef enum
   * communication procedures:
   *  
   * 1) Master Receiver mode: The master has to wait on the event EVT7 then use  
-  *   I2C_ReceiveData() function to read the data received from the slave .
+  *   i2c_receive_data() function to read the data received from the slave .
   * 
-  * 2) Master Transmitter mode: The master use I2C_SendData() function to send data  
+  * 2) Master Transmitter mode: The master use i2c_send_data() function to send data  
   *     then to wait on event EVT8 or EVT8_2.
   *    These two events are similar: 
   *     - EVT8 means that the data has been written in the data register and is 
@@ -1041,22 +1041,22 @@ typedef enum
   * 
   * Wait on one of these events at the start of the communication. It means that 
   * the I2C peripheral detected a start condition of master device generate on the bus.  
-  * If the acknowledge feature is enabled through function I2C_AcknowledgeConfig()),The peripheral generates an ACK condition on the bus. 
+  * If the acknowledge feature is enabled through function i2c_acknowledge_config()),The peripheral generates an ACK condition on the bus. 
   *    
   *
   *
   * a) In normal case (only one address managed by the slave), when the address 
   *   sent by the master matches the own address of the peripheral (configured by 
-  *   I2C_OwnAddress1 field) the I2C_EVENT_SLAVE_XXX_ADDRESS_MATCHED event is set 
+  *   own_address1 field) the I2C_EVENT_SLAVE_XXX_ADDRESS_MATCHED event is set 
   *   (where XXX could be TRANSMITTER or RECEIVER).
   *    
   * b) In case the address sent by the master matches the second address of the 
-  *   peripheral (configured by the function I2C_OwnAddress2Config() and enabled 
-  *   by the function I2C_DualAddressCmd()) the events I2C_EVENT_SLAVE_XXX_SECONDADDRESS_MATCHED 
+  *   peripheral (configured by the function i2c_own_address2_config() and enabled 
+  *   by the function i2c_dual_address_cmd()) the events I2C_EVENT_SLAVE_XXX_SECONDADDRESS_MATCHED 
   *   (where XXX could be TRANSMITTER or RECEIVER) are set.
   *   
   * c) In case the address sent by the master is General Call (address 0x00) and 
-  *   if the General Call is enabled for the peripheral (using function I2C_GeneralCallCmd()) 
+  *   if the General Call is enabled for the peripheral (using function i2c_general_call_cmd()) 
   *   the following event is set I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED.   
   * 
   */
